@@ -8,10 +8,12 @@
     
     <style>
         :root {
-            --primary-color: #2c3e50; /* Navy Blue */
-            --accent-color: #3498db; /* Bright Blue */
-            --bg-color: #ecf0f1; /* Light Gray */
-            --text-color: #34495e; /* Dark Gray */
+            --primary-color: #007bff; /* Primary Blue */
+            --secondary-color: #2c3e50; /* Dark Navy */
+            --accent-color: #28a745; /* Green Accent (สำหรับ Hover) */
+            --bg-color: #f8f9fa; /* Very Light Gray Background */
+            --card-bg: #ffffff; /* White Card Background */
+            --text-color: #343a40; /* Dark Text */
         }
         body { 
             font-family: 'Kanit', sans-serif; 
@@ -24,82 +26,93 @@
         .hero {
             background-color: var(--primary-color);
             color: white;
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .hero-content {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
-        /* รูปโปรไฟล์: วงกลมและมีขอบ */
+        /* รูปโปรไฟล์ */
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid white;
+            border: 6px solid rgba(255, 255, 255, 0.8);
             margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
         }
         .hero h1 { 
             margin: 0; 
-            font-size: 2.2em; 
-            font-weight: 600; 
+            font-size: 2.8em; 
+            font-weight: 700; 
         }
         .hero p {
             margin: 5px 0 0 0;
             font-weight: 300;
         }
         .container { 
-            max-width: 900px; 
-            margin: 20px auto; 
+            max-width: 1000px; 
+            margin: 40px auto; 
             padding: 0 20px; 
         }
         .section { 
-            background-color: white; 
+            background-color: var(--card-bg); 
             padding: 30px; 
-            margin-bottom: 20px; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            margin-bottom: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
         }
         .section h2 { 
-            color: var(--primary-color); 
-            border-bottom: 3px solid var(--accent-color); 
-            padding-bottom: 5px; 
-            margin-bottom: 20px; 
+            color: var(--secondary-color); 
+            border-bottom: 3px solid var(--primary-color); 
+            padding-bottom: 8px; 
+            margin-bottom: 25px; 
             font-weight: 600;
-            font-size: 1.8em;
+            font-size: 2em;
         }
+        /* ปรับปรุง Skills Layout ด้วย Flexbox */
         .skills-list { 
             list-style: none; 
             padding: 0; 
-            /* แก้ไข: เพื่อให้จัดเรียงได้สวยงามขึ้น */
             display: flex;
             flex-wrap: wrap; 
+            gap: 10px;
         }
         .skills-list li { 
-            background: var(--accent-color); 
+            background: var(--secondary-color); 
             color: white;
-            padding: 8px 15px; 
-            margin: 5px; 
-            border-radius: 20px; 
-            font-size: 0.9em;
+            padding: 10px 20px; 
+            border-radius: 25px; 
+            font-size: 0.95em;
             font-weight: 400;
+            transition: background-color 0.3s, transform 0.2s;
         }
+        .skills-list li:hover {
+            background-color: var(--accent-color); /* เปลี่ยนเป็นสีเขียวเมื่อชี้ */
+            transform: translateY(-2px);
+        }
+        /* ปรับปรุง Project Item */
         .project-item { 
             padding: 15px 0;
-            border-bottom: 1px dashed var(--bg-color);
-            margin-bottom: 15px;
-        }
-        .project-item:last-child {
-             border-bottom: none;
+            border-left: 4px solid var(--primary-color); /* เพิ่มเส้นด้านข้าง */
+            padding-left: 20px;
+            margin-bottom: 20px;
         }
         .project-item h3 {
-            color: var(--accent-color);
+            color: var(--primary-color);
             margin: 0 0 5px 0;
             font-weight: 600;
+            font-size: 1.4em;
         }
-        .contact p { margin: 10px 0; }
-        .contact a { color: var(--accent-color); text-decoration: none; }
+        .project-item p {
+            margin: 5px 0;
+        }
+        /* Contact/Education Style */
+        .contact p, .section p { margin: 10px 0; }
+        .contact a { color: var(--primary-color); text-decoration: none; font-weight: 500;}
         .contact a:hover { text-decoration: underline; }
     </style>
 </head>
@@ -111,7 +124,7 @@
             
             <h1>นาย ศุภกร สีแก้วน้ำใส (Suphakon Sikaeonamsai)</h1>
             <p>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ | มหาวิทยาลัยราชภัฏอุดรธานี</p>
-            <p style="font-size: 1.1em; margin-top: 10px;">ความสนใจ: Web Development และ Data Science</p>
+            <p style="font-size: 1.2em; margin-top: 15px; font-weight: 400;">ความสนใจ: Web Development และ Data Science</p>
         </div>
     </header>
 
@@ -139,6 +152,7 @@
             <div class="project-item">
                 <h3>โปรเจกต์จบ: ระบบแนะนำสินค้าสำหรับเด็ก</h3>
                 <p><strong>รายละเอียด:</strong> พัฒนาระบบเพื่อแนะนำผลิตภัณฑ์ที่เหมาะสมกับช่วงอายุและความสนใจของเด็ก โดยใช้เทคนิค **Rule-based Filtering**</p>
+                <p><a href="#">[ลิงก์ไปยัง GitHub Project]</a></p>
             </div>
             
         </section>

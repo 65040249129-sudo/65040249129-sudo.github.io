@@ -114,6 +114,21 @@
         .contact p, .section p { margin: 10px 0; }
         .contact a { color: var(--primary-color); text-decoration: none; font-weight: 500;}
         .contact a:hover { text-decoration: underline; }
+        
+        /* สไตล์สำหรับรายการการศึกษาแต่ละอัน */
+        .education-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--bg-color);
+        }
+        .education-item:last-child {
+            border-bottom: none;
+        }
+        .education-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
     </style>
 </head>
 <body>
@@ -152,6 +167,7 @@
             <div class="project-item">
                 <h3>โปรเจกต์จบ: ระบบแนะนำสินค้าสำหรับเด็ก</h3>
                 <p><strong>รายละเอียด:</strong> พัฒนาระบบเพื่อแนะนำผลิตภัณฑ์ที่เหมาะสมกับช่วงอายุและความสนใจของเด็ก โดยใช้เทคนิค **Rule-based Filtering**</p>
+                <p><a href="#">[ลิงก์ไปยัง GitHub Project]</a></p>
             </div>
             
         </section>
@@ -159,8 +175,17 @@
         <section class="section" id="education">
             <h2>การศึกษา (Education)</h2>
             
-            <p><strong>มหาวิทยาลัย:</strong> มหาวิทยาลัยราชภัฏอุดรธานี | สาขาวิทยาการคอมพิวเตอร์</p>
-            <p><strong>ปีการศึกษา:</strong> 2565 – ปัจจุบัน</p>
+            <div class="education-item">
+                <strong>มหาวิทยาลัย:</strong> มหาวิทยาลัยราชภัฏอุดรธานี
+                <p><strong>สาขา:</strong> วิทยาการคอมพิวเตอร์</p>
+                <p><strong>ปีการศึกษา:</strong> 2565 – ปัจจุบัน</p>
+            </div>
+            
+            <div class="education-item">
+                <strong>ระดับมัธยมศึกษา:</strong> มัธยมเทศบาล 6 นครอุดรธานี
+                <p><strong>สายการเรียน:</strong> วิทยาศาสตร์ - คณิตศาสตร์</p>
+                <p><strong>ปีการศึกษา:</strong> [ระบุปีที่จบการศึกษา]</p>
+            </div>
             
         </section>
 
@@ -174,7 +199,7 @@
             <p><strong>Email:</strong> <a href="mailto:suphakon4479@gmail.com">suphakon4479@gmail.com</a></p>
             <p><strong>GitHub:</strong> <a href="https://github.com/65040249129-sudo">65040249129-sudo</a></p>
             <p><strong>ที่อยู่ (อ้างอิง):</strong> จังหวัดอุดรธานี</p>
-            </section>
+        </section>
         
     </div>
 

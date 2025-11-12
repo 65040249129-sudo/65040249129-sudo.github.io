@@ -3,792 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suphakon Sikaeonamsai - Portfolio</title>
+    <title>Portfolio - ศุภกร สีแก้วน้ำใส</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --secondary: #0f172a;
-            --accent: #10b981;
-            --bg-light: #f8fafc;
-            --bg-white: #ffffff;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --primary-color: #007bff; /* Primary Blue */
+            --secondary-color: #2c3e50; /* Dark Navy */
+            --accent-color: #28a745; /* Green Accent (สำหรับ Hover) */
+            --bg-color: #f8f9fa; /* Very Light Gray Background */
+            --card-bg: #ffffff; /* White Card Background */
+            --text-color: #343a40; /* Dark Text */
         }
-
-        body {
-            font-family: 'Kanit', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
+        body { 
+            font-family: 'Kanit', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            line-height: 1.6;
         }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-sm);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            box-shadow: var(--shadow-md);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background-color: var(--primary-color);
             color: white;
-            padding: 120px 2rem 80px;
-            margin-top: 70px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
-            animation: float 20s linear infinite;
-        }
-
-        @keyframes float {
-            from { transform: translateY(0); }
-            to { transform: translateY(-100px); }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .profile-section {
+            padding: 60px 20px;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        /* รูปโปรไฟล์ */
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 6px solid rgba(255, 255, 255, 0.3);
-            box-shadow: var(--shadow-lg);
-            animation: fadeInUp 0.8s ease;
+            border: 6px solid rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero h1 { 
+            margin: 0; 
+            font-size: 2.8em; 
+            font-weight: 700; 
         }
-
-        .hero-text h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero-text .subtitle {
-            font-size: 1.3rem;
-            font-weight: 400;
-            opacity: 0.95;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .hero-text .description {
-            font-size: 1.1rem;
+        .hero p {
+            margin: 5px 0 0 0;
             font-weight: 300;
-            opacity: 0.9;
-            line-height: 1.6;
-            animation: fadeInUp 0.8s ease 0.6s both;
         }
-
-        .hero-buttons {
+        .container { 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+        .section { 
+            background-color: var(--card-bg); 
+            padding: 30px; 
+            margin-bottom: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        }
+        .section h2 { 
+            color: var(--secondary-color); 
+            border-bottom: 3px solid var(--primary-color); 
+            padding-bottom: 8px; 
+            margin-bottom: 25px; 
+            font-weight: 600;
+            font-size: 2em;
+        }
+        /* ปรับปรุง Skills Layout ด้วย Flexbox */
+        .skills-list { 
+            list-style: none; 
+            padding: 0; 
             display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            animation: fadeInUp 0.8s ease 0.8s both;
+            flex-wrap: wrap; 
+            gap: 10px;
         }
-
-        .btn {
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-primary:hover {
-            opacity: 0.9;
-        }
-
-        .btn-outline {
-            border: 2px solid white;
+        .skills-list li { 
+            background: var(--secondary-color); 
             color: white;
+            padding: 10px 20px; 
+            border-radius: 25px; 
+            font-size: 0.95em;
+            font-weight: 400;
+            transition: background-color 0.3s, transform 0.2s;
         }
-
-        .btn-outline:hover {
-            background: white;
-            color: var(--primary);
+        .skills-list li:hover {
+            background-color: var(--accent-color); /* เปลี่ยนเป็นสีเขียวเมื่อชี้ */
+            transform: translateY(-2px);
         }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+        /* ปรับปรุง Project Item */
+        .project-item { 
+            padding: 15px 0;
+            border-left: 4px solid var(--primary-color); /* เพิ่มเส้นด้านข้าง */
+            padding-left: 20px;
+            margin-bottom: 20px;
         }
-
-        .section {
-            margin-bottom: 5rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-top: 1rem;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            background: var(--bg-white);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-name {
+        .project-item h3 {
+            color: var(--primary-color);
+            margin: 0 0 5px 0;
             font-weight: 600;
-            color: var(--text-primary);
+            font-size: 1.4em;
         }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+        .project-item p {
+            margin: 5px 0;
         }
-
-        .project-card {
-            background: var(--bg-white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tag {
-            background: var(--bg-light);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: var(--primary);
-        }
-
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-content {
-            background: var(--bg-white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-md);
-            position: relative;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            grid-column: 1;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            grid-column: 2;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border: 4px solid var(--bg-light);
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-year {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-subtitle {
-            color: var(--text-secondary);
-        }
-
-        /* Career Goals */
-        .career-card {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .career-card h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .career-card p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-            line-height: 1.8;
-        }
-
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .contact-card {
-            background: var(--bg-white);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .contact-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .contact-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-info {
-            color: var(--text-secondary);
-        }
-
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--secondary);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        footer p {
-            opacity: 0.8;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline-item:nth-child(even) .timeline-content {
-                grid-column: 1;
-            }
-
-            .timeline-dot {
-                left: 20px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scroll Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* Contact/Education Style */
+        .contact p, .section p { margin: 10px 0; }
+        .contact a { color: var(--primary-color); text-decoration: none; font-weight: 500;}
+        .contact a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">SK Portfolio</div>
-            <ul class="nav-links">
-                <li><a href="#home">หน้าแรก</a></li>
-                <li><a href="#skills">ทักษะ</a></li>
-                <li><a href="#projects">ผลงาน</a></li>
-                <li><a href="#education">การศึกษา</a></li>
-                <li><a href="#contact">ติดต่อ</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <header class="hero">
         <div class="hero-content">
-            <div class="profile-section">
-                <img class="profile-img" src="./profile.png" alt="Suphakon Sikaeonamsai">
-            </div>
-            <div class="hero-text">
-                <h1>ศุภกร สีแก้วน้ำใส</h1>
-                <p class="subtitle">Computer Science Student</p>
-                <p class="description">
-                    นักศึกษาสาขาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยราชภัฏอุดรธานี<br>
-                    มุ่งเน้นพัฒนาทักษะด้าน Web Development และ Data Science<br>
-                    พร้อมสร้างสรรค์โซลูชันที่มีคุณค่าต่อสังคม
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">ดูผลงาน</a>
-                    <a href="#contact" class="btn btn-outline">ติดต่อฉัน</a>
-                </div>
-            </div>
+            <img class="profile-img" src="./profile.png" alt="รูปโปรไฟล์"> 
+            
+            <h1>นาย ศุภกร สีแก้วน้ำใส (Suphakon Sikaeonamsai)</h1>
+            <p>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ | มหาวิทยาลัยราชภัฏอุดรธานี</p>
+            <p style="font-size: 1.2em; margin-top: 15px; font-weight: 400;">ความสนใจ: Web Development และ Data Science</p>
         </div>
-    </section>
+    </header>
 
     <div class="container">
         
-        <!-- Skills Section -->
-        <section class="section fade-in" id="skills">
-            <div class="section-header">
-                <h2 class="section-title">ทักษะความสามารถ</h2>
-                <p class="section-subtitle">เทคโนโลยีและเครื่องมือที่ใช้งานได้</p>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-name">Python</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-name">JavaScript</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-name">HTML & CSS</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-name">SQL</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-name">Machine Learning</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-name">Data Cleaning</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-name">Git/GitHub</div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-name">VS Code</div>
-                </div>
-            </div>
+        <section class="section" id="skills">
+            <h2>ทักษะ (Skills)</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>HTML & CSS</li>
+                <li>SQL</li>
+                <li>Rule-based Filtering</li>
+                <li>Basic Machine Learning</li>
+                <li>Data Cleaning</li>
+                <li>Git/GitHub</li>
+                <li>VS Code</li>
+                <li>Google Colab</li>
+            </ul>
         </section>
 
-        <!-- Projects Section -->
-        <section class="section fade-in" id="projects">
-            <div class="section-header">
-                <h2 class="section-title">ผลงานที่ผ่านมา</h2>
-                <p class="section-subtitle">โปรเจกต์และงานที่ได้พัฒนา</p>
+        <section class="section" id="projects">
+            <h2>ผลงานที่ผ่านมา (Projects / Portfolio)</h2>
+            
+            <div class="project-item">
+                <h3>โปรเจกต์จบ: ระบบแนะนำสินค้าสำหรับเด็ก</h3>
+                <p><strong>รายละเอียด:</strong> พัฒนาระบบเพื่อแนะนำผลิตภัณฑ์ที่เหมาะสมกับช่วงอายุและความสนใจของเด็ก โดยใช้เทคนิค **Rule-based Filtering**</p>
+                <p><a href="#">[ลิงก์ไปยัง GitHub Project]</a></p>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <span style="font-size: 2rem; font-weight: 700; color: white;">Product Recommendation</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">ระบบแนะนำสินค้าสำหรับเด็ก</h3>
-                        <p class="project-description">
-                            โปรเจกต์จบการศึกษา: พัฒนาระบบเพื่อแนะนำผลิตภัณฑ์ที่เหมาะสมกับช่วงอายุและความสนใจของเด็ก โดยใช้เทคนิค Rule-based Filtering เพื่อคัดกรองสินค้าที่เหมาะสมที่สุด
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Rule-based</span>
-                            <span class="tag">Filtering</span>
-                        </div>
-                        <a href="#" class="project-link">
-                            ดูโปรเจกต์ →
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- เพิ่มพื้นที่สำหรับโปรเจกต์ใหม่ในอนาคต -->
-                <div class="project-card" style="opacity: 0.6; border: 2px dashed var(--text-secondary);">
-                    <div class="project-image">
-                        <span style="font-size: 2rem; font-weight: 700; color: white;">New Project</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">โปรเจกต์ถัดไป</h3>
-                        <p class="project-description">
-                            กำลังพัฒนาโปรเจกต์ใหม่ๆ เพื่อเพิ่มพูนประสบการณ์และทักษะด้าน Web Development และ Data Science
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Coming Soon</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </section>
 
-        <!-- Education Section -->
-        <section class="section fade-in" id="education">
-            <div class="section-header">
-                <h2 class="section-title">ประวัติการศึกษา</h2>
-                <p class="section-subtitle">เส้นทางการเรียนรู้</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2565 - ปัจจุบัน</div>
-                        <h3 class="timeline-title">ปริญญาตรี วิทยาการคอมพิวเตอร์</h3>
-                        <p class="timeline-subtitle">
-                            มหาวิทยาลัยราชภัฏอุดรธานี<br>
-                            คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์
-                        </p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                </div>
-            </div>
+        <section class="section" id="education">
+            <h2>การศึกษา (Education)</h2>
+            
+            <p><strong>มหาวิทยาลัย:</strong> มหาวิทยาลัยราชภัฏอุดรธานี | สาขาวิทยาการคอมพิวเตอร์</p>
+            <p><strong>ปีการศึกษา:</strong> 2565 – ปัจจุบัน</p>
+            
         </section>
 
-        <!-- Career Goals -->
-        <section class="section fade-in">
-            <div class="section-header">
-                <h2 class="section-title">เป้าหมายในอนาคต</h2>
-            </div>
-            <div class="career-card">
-                <h3>ความฝันในอาชีพ</h3>
-                <p>
-                    มุ่งมั่นที่จะเป็น <strong>Web Developer</strong> ที่มีความเชี่ยวชาญด้าน <strong>Data Science</strong><br>
-                    เพื่อพัฒนาเว็บแอปพลิเคชันที่ขับเคลื่อนด้วยข้อมูลและสร้างคุณค่าให้กับผู้ใช้งาน<br>
-                    พร้อมเรียนรู้เทคโนโลยีใหม่ๆ อย่างต่อเนื่อง
-                </p>
-            </div>
+        <section class="section" id="career">
+            <h2>เป้าหมายในอนาคต (Career Interest)</h2>
+            <p style="font-size: 1.1em;">ต้องการเป็น **Web Developer** ที่เชี่ยวชาญด้าน **Data Science** ในอนาคต</p>
         </section>
-
-        <!-- Contact Section -->
-        <section class="section fade-in" id="contact">
-            <div class="section-header">
-                <h2 class="section-title">ติดต่อฉัน</h2>
-                <p class="section-subtitle">ยินดีรับฟังข้อเสนอแนะและโอกาสความร่วมมือ</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <h3 class="contact-title">Email</h3>
-                    <p class="contact-info">
-                        <a href="mailto:suphakon4479@gmail.com">suphakon4479@gmail.com</a>
-                    </p>
-                </div>
-                <div class="contact-card">
-                    <h3 class="contact-title">GitHub</h3>
-                    <p class="contact-info">
-                        <a href="https://github.com/65040249129-sudo" target="_blank">65040249129-sudo</a>
-                    </p>
-                </div>
-                <div class="contact-card">
-                    <h3 class="contact-title">LinkedIn</h3>
-                    <p class="contact-info">
-                        <a href="#" target="_blank">Connect with me</a>
-                    </p>
-                </div>
-                <div class="contact-card">
-                    <h3 class="contact-title">Location</h3>
-                    <p class="contact-info">
-                        อุดรธานี, ประเทศไทย
-                    </p>
-                </div>
-            </div>
+        
+        <section class="section contact" id="contact">
+            <h2>ติดต่อ (Contact)</h2>
+            <p><strong>Email:</strong> <a href="mailto:suphakon4479@gmail.com">suphakon4479@gmail.com</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/65040249129-sudo">65040249129-sudo</a></p>
+            <p><strong>ที่อยู่ (อ้างอิง):</strong> จังหวัดอุดรธานี</p>
+            <p><strong>LinkedIn:</strong> <a href="#">[LinkedIn Profile]</a></p>
         </section>
-
+        
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Suphakon Sikaeonamsai. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Made with passion and dedication</p>
-    </footer>
-
-    <script>
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Scroll animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
 
 </body>
 </html>

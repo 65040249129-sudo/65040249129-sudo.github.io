@@ -72,13 +72,15 @@
         .skills-list { 
             list-style: none; 
             padding: 0; 
+            /* แก้ไข: เพื่อให้จัดเรียงได้สวยงามขึ้น */
+            display: flex;
+            flex-wrap: wrap; 
         }
         .skills-list li { 
             background: var(--accent-color); 
             color: white;
             padding: 8px 15px; 
             margin: 5px; 
-            display: inline-block; 
             border-radius: 20px; 
             font-size: 0.9em;
             font-weight: 400;
@@ -105,7 +107,7 @@
 
     <header class="hero">
         <div class="hero-content">
-            <img class="profile-img" src="./Screenshot 2025-11-12 092627.png" alt="รูปโปรไฟล์"> 
+            <img class="profile-img" src="./profile.png" alt="รูปโปรไฟล์"> 
             
             <h1>นาย ศุภกร สีแก้วน้ำใส (Suphakon Sikaeonamsai)</h1>
             <p>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์ | มหาวิทยาลัยราชภัฏอุดรธานี</p>
